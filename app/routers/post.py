@@ -1,10 +1,7 @@
-from operator import contains
 import sys
-from turtle import title
-#REMOVE WHEN UPLOADING TO GITHUB!!!!!!!!!!!!!!! use "/path/to/parentdirectory"
 sys.path.append("/home/christian/Environments/social_media_api/fastapi/app")
-import models, schemas, oauth2
-from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
+from app import models, schemas, oauth2
+from fastapi import Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from database import get_db
@@ -26,6 +23,7 @@ router = APIRouter(
 @router.get("/", response_model=List[schemas.PostOut])
 def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user),
  limit: int = 10, skip: int = 0, search: Optional[str] = ""):
+    
     #cursor.execute(""" SELECT * FROM posts """)
     #posts = cursor.fetchall()
     #posts = db.query(models.Post).filter(models.Post.title.contains(search)).limit(limit).offset(skip).all()
@@ -52,7 +50,7 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), curren
 
 # get one single post
 # id -- > path parameter
-@router.get("/{id}", response_model=schemas.Post)
+@router.get("/{id}", response_model=schemas.PostOut)
 def get_post(id: int, response: Response, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user))  :
     #cursor.execute(""" SELECT * FROM posts WHERE id = %s """, (str(id),))
     #post = cursor.fetchone()

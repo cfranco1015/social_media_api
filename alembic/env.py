@@ -7,7 +7,7 @@ import sys
 sys.path.append("/home/christian/Environments/social_media_api/fastapi/app")
 
 from alembic import context
-from app.database import Base
+from app.models import Base
 from app.config import settings
 
 # this is the Alembic Config object, which provides

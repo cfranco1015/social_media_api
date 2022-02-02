@@ -1,4 +1,6 @@
 from pydantic import BaseSettings
+import sys
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 
 class Settings(BaseSettings):
   database_hostname: str

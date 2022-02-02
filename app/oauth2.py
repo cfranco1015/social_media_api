@@ -1,9 +1,11 @@
+import sys
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from email import header
 from fastapi import Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
-import schemas, database, models
+from app import schemas, database, models
 from sqlalchemy.orm import Session
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")

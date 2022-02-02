@@ -1,10 +1,10 @@
 import sys
-sys.path.append("/home/christian/Environments/social_media_api/fastapi/app")
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from fastapi import APIRouter, Depends, status, HTTPException, Response
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from database import get_db
-import models, schemas, utils, oauth2
+from app import models, schemas, utils, oauth2
 router = APIRouter(tags=['Authentication'])
 
 @router.post('/login', response_model=schemas.Token)
@@ -19,8 +19,7 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
         detail=f"Invalid Credentials")
 
-    #create a token 
-    # return token
+    #create and return a token
 
     access_token = oauth2.create_access_token(data={"user_id": user.id})
 

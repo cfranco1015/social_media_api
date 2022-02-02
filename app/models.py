@@ -1,15 +1,13 @@
-import email
-from enum import unique
-from pydantic import BaseModel
-from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
+import sys
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import null, text
+from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
-from database import Base
+from app.database import Base
 
 class Post(Base):
     __tablename__ = "posts"
-
     id = Column(Integer, primary_key=True, nullable=False)
     title = Column(String, nullable=False)
     content = Column(String, nullable=False)
@@ -18,7 +16,6 @@ class Post(Base):
     owner_id = Column(Integer, ForeignKey("users.id", ondelete='CASCADE'), nullable=False)
     owner = relationship("User")
     
-
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, nullable=False)

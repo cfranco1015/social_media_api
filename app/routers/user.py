@@ -1,7 +1,7 @@
 import sys
-sys.path.append("/home/christian/Environments/social_media_api/fastapi/app")
-from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
-import models, schemas, utils
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
+from fastapi import status, HTTPException, Depends, APIRouter
+from app import models, schemas, utils
 from sqlalchemy.orm import Session
 from database import get_db
 

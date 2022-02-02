@@ -1,10 +1,12 @@
+import sys
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from importlib.resources import path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import models
-from database import engine
-from routers import post, user, auth, vote
-from config import settings
+from app import models
+from app.database import engine
+from app.routers import post, user, auth, vote
+from app.config import settings
 
 # auto generate tables if they fo not exist in PostgreSQL
 #models.Base.metadata.create_all(bind = engine)

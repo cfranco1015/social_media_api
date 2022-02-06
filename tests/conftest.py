@@ -2,12 +2,10 @@ import sys
 sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from fastapi.testclient import TestClient
 import pytest
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from app.main import app
-from app.config import settings
-from app.database import get_db, drop_table, engine
+from app.database import get_db, engine
 from app.database import Base
 from app.oauth2 import create_access_token
 from app import models

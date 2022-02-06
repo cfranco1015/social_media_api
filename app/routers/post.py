@@ -1,10 +1,10 @@
 import sys
-sys.path.append("/home/christian/Environments/social_media_api/fastapi/app")
+sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from app import models, schemas, oauth2
 from fastapi import Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from database import get_db
+from app.database import get_db
 from typing import List, Optional
 
 # path length reduced by using prefix arguement

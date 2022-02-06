@@ -3,7 +3,7 @@ sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from fastapi import APIRouter, Depends, status, HTTPException, Response
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from database import get_db
+from app.database import get_db
 from app import models, schemas, utils, oauth2
 router = APIRouter(tags=['Authentication'])
 

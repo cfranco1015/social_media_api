@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/christian/Environments/social_media_api/fastapi")
+sys.path.append("/path/to/project/directory")
 import pytest
 from sqlalchemy.orm import sessionmaker
 from fastapi.testclient import TestClient

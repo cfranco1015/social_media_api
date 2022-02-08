@@ -1,10 +1,7 @@
-from lib2to3.pytree import Base
-from typing import Optional
 from pydantic import BaseModel, EmailStr
 from pydantic.types import conint
 from datetime import datetime
-# create a Pydantic model to validate data being sent from server
-# each field can have an assigned a data type, a default value or to none
+from typing import Optional
 
 class UserCreate(BaseModel):
     email : EmailStr

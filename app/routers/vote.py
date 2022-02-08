@@ -1,6 +1,6 @@
-from fastapi import status, HTTPException, Depends, APIRouter
 import sys
 sys.path.append("/home/christian/Environments/social_media_api/fastapi")
+from fastapi import status, HTTPException, Depends, APIRouter
 from app import schemas, database, models, oauth2
 from sqlalchemy.orm import Session
 
@@ -11,7 +11,6 @@ router = APIRouter(
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def vote(vote: schemas.Vote, db: Session = Depends(database.get_db), current_user: int = Depends(oauth2.get_current_user)):
-
     # Check if post exists
     post = db.query(models.Post).filter(models.Post.id == vote.post_id).first()
 
@@ -22,11 +21,9 @@ def vote(vote: schemas.Vote, db: Session = Depends(database.get_db), current_use
     # Check if user already liked post
     vote_query = db.query(models.Vote).filter(
         models.Vote.post_id == vote.post_id, models.Vote.user_id == current_user.id)
-
     found_vote = vote_query.first()
 
     # Voting direction : 0 --> user wants to remove like from post, 1 --> user wants to like post 
-
     if (vote.dir == 1):
         if found_vote:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT,

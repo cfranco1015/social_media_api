@@ -1,7 +1,7 @@
-from pydantic import BaseSettings
 import sys
 sys.path.append("/home/christian/Environments/social_media_api/fastapi")
-
+from pydantic import BaseSettings
+  
 class Settings(BaseSettings):
   database_hostname: str
   database_port: str
@@ -12,6 +12,7 @@ class Settings(BaseSettings):
   algorithm: str
   access_token_expire_minutes: int
 
+ # .env file needed for above field values
   class Config:
       env_file = "/home/christian/Environments/social_media_api/fastapi/.env"
 

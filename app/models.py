@@ -2,8 +2,8 @@ import sys
 sys.path.append("/home/christian/Environments/social_media_api/fastapi")
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
+from sqlalchemy.sql.expression import text
 from app.database import Base
 
 class Post(Base):

@@ -18,11 +18,28 @@ Make a [Heroku](https://www.heroku.com/) account to deploy application from the 
 
 ## Usage
 
-.
-.
-.
+Create a `.env` file in project directory to provide the following credentials and variables. The file path will need to be set in `config.py`. Also add the project directory path to each file via 
+``` sys.path.append('path/to/directory')```. 
+
+```python
+  database_hostname: str
+  database_port: str
+  database_password: str
+  database_name: str
+  database_username: str
+  secret_key: str
+  algorithm: str
+  access_token_expire_minutes: int
+```
+
+For the CI/CD pipeline to operate, two GitHub environments will needed to be made: testing and production. Refer to the `build-deploy.yml` file to determine which secrets will need to be added for each environment via GitHub Actions. 
+
+Create two PostgreSQL databases in pgAdmin 4, one for testing and the other for main production. In the `database.py` file, select which `SQLALCHEMY_DATABASE_URL` will passed into the SQLAlchemy engine object. 
 
 Once the above is complete, run the following in terminal under the app directory to start the server.
+
 ```bash
 uvicorn main:app --reload
 ```
+
+## Acknowledgements 

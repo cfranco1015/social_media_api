@@ -32,7 +32,7 @@ For the CI/CD pipeline to operate, two GitHub environments will needed to be mad
 
 Create two PostgreSQL databases in pgAdmin 4, one for testing and the other for main production. In the `database.py` file, select which `SQLALCHEMY_DATABASE_URL` will passed into the SQLAlchemy engine object. 
 
-Once the above is complete, run the following in terminal under the app directory to start the server.
+Once the above is complete, run the following in terminal under the ```app``` directory to start the server.
 
 ```bash
 uvicorn main:app --reload

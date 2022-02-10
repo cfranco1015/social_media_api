@@ -10,11 +10,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install depende
 pip install -r requirements.txt
 ```
 
-PostgreSQL server and pgAdmin 4 can be to be downloaded [here](https://pip.pypa.io/en/stable/), which will be needed to manage database objects. 
-
-Make a [Heroku](https://www.heroku.com/) account to deploy application from the CI/CD pipeline. 
-
-[Postman](https://www.postman.com/) or any similiar API client is recommended to test HTTP requests. 
+PostgreSQL server and pgAdmin 4 can be to be downloaded [here](https://pip.pypa.io/en/stable/), which will be needed to manage database objects. A [Heroku](https://www.heroku.com/) account will be required to deploy the application from the CI/CD pipeline. [Postman](https://www.postman.com/) or any similiar API client is recommended to test HTTP requests. 
 
 ## Usage
 
@@ -42,4 +38,15 @@ Once the above is complete, run the following in terminal under the app director
 uvicorn main:app --reload
 ```
 
-## Acknowledgements 
+## Tests
+
+Run the following command in terminal to test the API is functioning properly.
+```bash
+pytest -v -s 
+```
+
+## Acknowledgements
+This API was made possible by the Python API Development course taught from [Sanjeev Thiyagarajan](https://www.youtube.com/watch?v=0sOvCWFmrtA).  
+
+## License
+This repository is released under the [MIT](https://opensource.org/licenses/MIT) License.

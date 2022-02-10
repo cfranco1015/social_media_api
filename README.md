@@ -49,4 +49,4 @@ pytest -v -s
 This API was made possible by the Python API Development course taught from [Sanjeev Thiyagarajan](https://www.youtube.com/watch?v=0sOvCWFmrtA).  
 
 ## License
-This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) License.
+This repository is released under the [MIT](https://github.com/cfranco1015/social_media_api/blob/main/LICENSE) License.

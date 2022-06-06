@@ -23,7 +23,7 @@ PostgreSQL server and pgAdmin 4 can be to be downloaded [here](https://pip.pypa.
 
 ## Usage
 
-Create a `.env` file in project directory to provide the following credentials and variables. The file path will need to be set in `config.py`. Also update the project directory path to each file via 
+Create a `.env` file in the project directory to provide the following credentials and variables. The file path will need to be set in `config.py`. Also update the project directory path to each file via 
 ``` sys.path.append('path/to/directory')```. 
 
 ```python
@@ -37,11 +37,11 @@ Create a `.env` file in project directory to provide the following credentials a
   access_token_expire_minutes: int
 ```
 
-For the CI/CD pipeline to operate, two GitHub environments will needed to be made: testing and production. Refer to the `build-deploy.yml` file to determine which secrets will need to be added for each environment via GitHub Actions. 
+For the CI/CD pipeline to operate, two GitHub environments will need to be made: testing and production. Refer to the `build-deploy.yml` file to determine which secrets will need to be added for each environment via GitHub Actions. 
 
 Create two PostgreSQL databases in pgAdmin 4, one for testing and the other for main production. Verify the ``` DATABASE_NAME``` set in the `.env` file reflects which database will be passed into the SQLAlchemy engine object. 
 
-Once the above is complete, run the following in terminal under the ```app``` directory to start the server.
+Once the above is complete, run the following command in terminal, under the ```app``` directory, to start the server.
 
 ```bash
 uvicorn main:app --reload
